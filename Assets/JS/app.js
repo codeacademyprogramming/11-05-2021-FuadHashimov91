@@ -6,7 +6,6 @@ const dataUser = document.querySelector("#data-user");
 const logOut = document.querySelector("#log-out");
 
 
-
 setUserData_sStorage(url);
 function createUserTable(data) {
     let html = "";
