@@ -3,6 +3,8 @@ import {setUserData_sStorage,getUserData_sStorage} from '/Assets/Models/userApi.
 const url = "https://randomuser.me/api/";
 
 const dataUser = document.querySelector("#data-user");
+const logOut = document.querySelector("#log-out");
+
 
 
 setUserData_sStorage(url);
@@ -26,3 +28,10 @@ function createUserTable(data) {
     dataUser.innerHTML = html;
 }
 createUserTable(getUserData_sStorage());
+
+
+const logOutPage = _ => {
+    sessionStorage.clear();
+    document.location ="http://127.0.0.1:5500/Login.html";
+}
+logOut.addEventListener("click",logOutPage);
