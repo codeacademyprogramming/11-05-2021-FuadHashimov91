@@ -1,36 +1,37 @@
-const email_inp = document.getElementById("email");
-const password_inp = document.getElementById("password");
-const form = document.querySelector("#form");
+// const email_inp = document.getElementById("email");
+// const password_inp = document.getElementById("password");
+// const form = document.querySelector("#form");
+
+
 const dataUser = document.querySelector("#data-user");
-let formBg = document.querySelector("#form-bg");
+
 
 
 
 const url = "https://randomuser.me/api/";
 
 
-form.addEventListener("submit",formControl);
+// form.addEventListener("submit",formControl);
 
-let obj ={
-    name:"Admin",
-    surName:"Admin"
-}
+// let obj ={
+//     name:"Admin",
+//     surName:"Admin"
+// }
 
 
-function formControl(e){
-    e.preventDefault();
-    let email = email_inp.value;
-    let password = password_inp.value;
-    // (email === obj.name && password === obj.surName)? console.log(true):console.log(false);
-    if(email === obj.name && password === obj.surName){
-        document.querySelector(".test").classList.add("form-bg")
+// function formControl(e){
+//     e.preventDefault();
+//     let email = email_inp.value;
+//     let password = password_inp.value;
+//     // (email === obj.name && password === obj.surName)? console.log(true):console.log(false);
+//     if(email === obj.name && password === obj.surName){
+//         document.location = "http://127.0.0.1:5500/Login.html";
         
-        //getUser(url);
-    }
-    else{
-        console.log(false);
-    }
-}
+//     }
+//     else{
+//         console.log(false);
+//     }
+// }
 
 async function setUserData_sStorage(url) {
     let response = await fetch(url);
@@ -61,13 +62,8 @@ function getUserData_sStorage() {
     return userData;
 }
 
-
-
 function createUserTable(data) {
-    
-    console.log(data);
     let html = "";
-
     html = 
     `
         <tr>
@@ -82,8 +78,8 @@ function createUserTable(data) {
             <td>${data.country}</td>
             <td>${data.postcode}</td>
         </tr>
-    
-    `
+    `;
+    dataUser.innerHTML = html;
     console.log(html)
 }
 createUserTable(getUserData_sStorage());
