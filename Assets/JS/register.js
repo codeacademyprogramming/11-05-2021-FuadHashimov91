@@ -24,14 +24,14 @@ function formControl(e){
     if(email === obj.name && password === obj.surName){
         document.querySelector(".test").classList.add("form-bg")
         
-        getUser(url);
+        //getUser(url);
     }
     else{
         console.log(false);
     }
 }
 
-async function getUser(url) {
+async function setUserData_sStorage(url) {
     let response = await fetch(url);
     let result = await response.json();
 
@@ -50,21 +50,29 @@ async function getUser(url) {
         };
         sessionStorage.setItem("User_Data",JSON.stringify(data));
     });
-
-    
-
-    // let sT = sessionStorage.getItem("Test");
-    // console.log(sT);
-
-    // let data = JSON.parse(sT);
-
-    // let userData = data.results.map(m=> {
-    //     return `${m.name.title} ${m.name.first} ${m.name.last}`;
-    // })
-    // console.log(userData);
-
-    //console.log(data.results);
 }
 
-getUser(url);
+setUserData_sStorage(url);
 
+function getUserData_sStorage() {
+
+    let s_storage =sessionStorage.getItem("User_Data");
+    let userData = JSON.parse(s_storage);
+    console.log(userData);
+
+    return userData;
+}
+getUserData_sStorage();
+
+
+function createUserTable() {
+    
+    let html = "";
+
+    html = 
+    `
+    
+    `
+
+
+}
