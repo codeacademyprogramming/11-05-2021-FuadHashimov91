@@ -35,7 +35,7 @@ async function getUser(url) {
     let response = await fetch(url);
     let result = await response.json();
 
-    result.results.forEach(element => {
+    await result.results.forEach(element => {
         let data = {
             name:element.name,
             email:element.email,
@@ -48,12 +48,10 @@ async function getUser(url) {
             phone:element.phone,
             picture:element.picture.medium
         };
-        console.log(data);
+        sessionStorage.setItem("User_Data",JSON.stringify(data));
     });
-    
-    
 
-    // sessionStorage.setItem("Test",JSON.stringify(result));
+    
 
     // let sT = sessionStorage.getItem("Test");
     // console.log(sT);
